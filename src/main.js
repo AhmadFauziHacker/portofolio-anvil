@@ -213,6 +213,29 @@ galleryCards.forEach(card => {
     });
 });
 
+// Experience Carousel Navigation Logic
+const experienceCarousels = document.querySelectorAll('.carousel-container');
+
+experienceCarousels.forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+
+    if (nextBtn && track) {
+        nextBtn.addEventListener('click', () => {
+            const scrollAmount = track.clientWidth;
+            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    }
+
+    if (prevBtn && track) {
+        prevBtn.addEventListener('click', () => {
+            const scrollAmount = track.clientWidth;
+            track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+    }
+});
+
 // Contact Form Logic
 const contactForm = document.getElementById('contact-form');
 const submitBtn = document.getElementById('submit-btn');

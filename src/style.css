@@ -136,6 +136,14 @@
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }
 
+@utility scrollbar-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .gallery-card .gallery-img {
   @apply transition-all duration-700 ease-out;
 }
