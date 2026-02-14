@@ -220,18 +220,69 @@ experienceCarousels.forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const prevBtn = carousel.querySelector('.carousel-prev');
     const nextBtn = carousel.querySelector('.carousel-next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    const slides = track?.querySelectorAll('.snap-center');
 
-    if (nextBtn && track) {
-        nextBtn.addEventListener('click', () => {
+    if (!track || !slides || slides.length === 0) return;
+
+    // Create dots if dotsContainer exists
+    if (dotsContainer) {
+        dotsContainer.innerHTML = ''; // Clear existing
+        if (slides.length > 1) { // Only show dots if more than 1 slide
+            slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = `dot w-2 h-2 rounded-full bg-white transition-all duration-300 ${index === 0 ? 'active' : 'opacity-40'}`;
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const scrollAmount = index * track.clientWidth;
+                    track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+    }
+
+    const dots = dotsContainer?.querySelectorAll('.dot');
+
+    // Update active dot on scroll
+    track.addEventListener('scroll', () => {
+        if (!dots || dots.length === 0) return;
+        const index = Math.round(track.scrollLeft / track.clientWidth);
+        dots.forEach((dot, idx) => {
+            if (idx === index) {
+                dot.classList.add('active');
+                dot.classList.remove('opacity-40');
+            } else {
+                dot.classList.remove('active');
+                dot.classList.add('opacity-40');
+            }
+        });
+    });
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             const scrollAmount = track.clientWidth;
-            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            
+            if (track.scrollLeft >= maxScroll - 10) { // Near the end, loop to start
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
         });
     }
 
-    if (prevBtn && track) {
-        prevBtn.addEventListener('click', () => {
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             const scrollAmount = track.clientWidth;
-            track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            
+            if (track.scrollLeft <= 10) { // Near the start, loop to end
+                track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
         });
     }
 });
