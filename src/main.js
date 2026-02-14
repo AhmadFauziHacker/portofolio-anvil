@@ -38,7 +38,7 @@ const projectsData = {
         title: "P-buddy (Parental Interactive Buddy for Understanding Detection Distress and Urgency Support)",
         description: "P-Buddy is a smart wearable bracelet designed to detect distress signals in children with special needs using motion and sound sensing technology, integrating ESP32, Raspberry Pi, and MPU6050 to provide real-time monitoring and emergency alerts for caregivers.",
         fullDescription: "P-buddy (Parental Interactive Buddy for Understanding Detection Distress and Urgency Support) Derived from concern about children with special needs and also the fact that technological advances can be utilized in many aspects, this encouraged us to create an innovative movement and sound detection bracelet which we hope will have a good impact in the future.I play the key role for developing the basic innovation equipped with sensors, such as ESP32, Raspberry Pi, and MPU6050 as the main components of the product.",
-        image: "anvil.png",
+        image: "1755076940670.jpeg",
         tech: ["Innovation Development", "Creative Strategy", "Analytical Skills", "Project Management"],
         features: ["Real-time Motion Tracking", "Automatic Distress Detection", "Instant Emergency Alerts", "Activity Data Visualization"],
         color: "primary"
@@ -47,7 +47,7 @@ const projectsData = {
         title: "GenRe Guardians Cardgame",
         description: "An inovation card game I created to facilitate socialization activities as the West Java GenRe Ambassador regarding the preparation of teenagers in Indonesia.",
         fullDescription: "In one pack, there are 12 types of cards containing information about youth preparation for adulthood. The card game is also a combination of traditional Japanese card games.An inovation card game I created to facilitate socialization activities as the West Java GenRe Ambassador regarding the preparation of teenagers in Indonesia.",
-        image: "QC.jpeg",
+        image: "1755017925946.jpeg",
         tech: ["Creative Strategy", "Public Speaking", "sosialize"],
         features: ["Educational Content Design", "Structured Gameplay Rules", "Social Interaction Framework", "Cultural Game Adaptation Concept"],
         color: "secondary"
@@ -56,7 +56,7 @@ const projectsData = {
         title: "INSPIRASA",
         description: "A humanitarian outreach program delivering interactive environmental education to children at an orphanage, involving 35 participants and organized by 18 International Relations students from President University. I served as Vice Project Manager, supporting coordination, team collaboration, and ensuring the smooth execution of the event.",
         fullDescription: "A humanitarian activity aimed at providing interactive learning to children in an orphanage about the importance of environmental awareness. This activity was attended by 35 children and organized by 18 International Relations students from President University.I was responsible as the Vice Project Manager, supporting the activity and ensuring the smooth running of the event as well as the teamwork among the members.",
-        image: "speaker.jpeg",
+        image: "inspirasa 2.jpeg",
         tech: ["Project Management", "Time Management", "Team Leadership", "Critical Thinking"],
         features: ["Project Planning & Timeline Coordination", "Team Management", "Program Design Support", "On-site Operational Supervision"],
         color: "primary"
