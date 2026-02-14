@@ -38,7 +38,7 @@ const projectsData = {
         title: "P-buddy (Parental Interactive Buddy for Understanding Detection Distress and Urgency Support)",
         description: "P-Buddy is a smart wearable bracelet designed to detect distress signals in children with special needs using motion and sound sensing technology, integrating ESP32, Raspberry Pi, and MPU6050 to provide real-time monitoring and emergency alerts for caregivers.",
         fullDescription: "P-buddy (Parental Interactive Buddy for Understanding Detection Distress and Urgency Support) Derived from concern about children with special needs and also the fact that technological advances can be utilized in many aspects, this encouraged us to create an innovative movement and sound detection bracelet which we hope will have a good impact in the future.I play the key role for developing the basic innovation equipped with sensors, such as ESP32, Raspberry Pi, and MPU6050 as the main components of the product.",
-        image: "./miss tenager/I am Anvil SalsabilaYour MissTeenager Intellegence West Java 2023-2024sometimes life gave you a  (1).jpg",
+        image: "./miss-teenager/miss-teenager-2.jpg",
         tech: ["React", "Tailwind", "Chart.js", "Firebase"],
         features: ["Real-time Analytics", "Data Visualization", "Inventory Tracking", "Custom Reports"],
         color: "primary"
@@ -47,7 +47,7 @@ const projectsData = {
         title: "GenRe Guardians Cardgame",
         description: "An inovation card game I created to facilitate socialization activities as the West Java GenRe Ambassador regarding the preparation of teenagers in Indonesia.",
         fullDescription: "An inovation card game I created to facilitate socialization activities as the West Java GenRe Ambassador regarding the preparation of teenagers in Indonesia.",
-        image: "./duta/Proud!!!..jpg",
+        image: "./duta/proud.jpg",
         tech: ["Next.js", "OpenAI API", "Hugging Face", "Vercel"],
         features: ["AI Content Generation", "SEO Optimization", "Creative Workflow", "Multi-language Support"],
         color: "secondary"
@@ -56,7 +56,7 @@ const projectsData = {
         title: "INSPIRASA",
         description: "A humanitarian outreach program delivering interactive environmental education to children at an orphanage, involving 35 participants and organized by 18 International Relations students from President University. I served as Vice Project Manager, supporting coordination, team collaboration, and ensuring the smooth execution of the event.",
         fullDescription: "A humanitarian activity aimed at providing interactive learning to children in an orphanage about the importance of environmental awareness. This activity was attended by 35 children and organized by 18 International Relations students from President University.I was responsible as the Vice Project Manager, supporting the activity and ensuring the smooth running of the event as well as the teamwork among the members.",
-        image: "./inti/[27-11-2025]📍Universitas Pertahanan RIMelalui Diskusi Panel dan Focus Group Discussion, kita me (1).jpg",
+        image: "./inti/inti-2.jpg",
         tech: ["Figma", "Adobe XD", "Framer Motion", "Design Systems"],
         features: ["Intutive Navigation", "Biometric Login UI", "Financial Data Viz", "Accessibility Focused"],
         color: "primary"
