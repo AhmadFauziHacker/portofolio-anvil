@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+
+  --color-primary: #e11d48;
+  --color-secondary: #fb7185;
+  --color-dark: #09090b;
+  --color-light: #fafafa;
+
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes morph {
+    0% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    100% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+  }
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-morph: morph 8s ease-in-out infinite;
+
+  @keyframes wave {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-25%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  --animate-wave: wave 15s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  --animate-float: float 4s ease-in-out infinite;
+}
+
+/* Enable class-based dark mode */
+@variant dark (&:where(.dark, .dark *));
+
+/* Base Styles */
+:root {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
+}
+
+@utility glass {
+  @apply bg-white/80 dark:bg-black/70 backdrop-blur-lg border-b border-rose-100/50 dark:border-gray-800;
+}
+
+@utility glass-heavy {
+  @apply bg-rose-50/80 dark:bg-dark/80 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-xl dark:shadow-2xl shadow-primary/5;
+}
+
+@utility bg-theme-soft {
+  @apply bg-rose-50/30 dark:bg-black/50 transition-colors duration-300;
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-primary to-secondary;
+}
+
+@utility marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+@utility tech-tag {
+  @apply px-2 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm transition-colors duration-300 hover:bg-primary/20;
+}
+
+@utility project-card-hover {
+  @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20;
+}
+
+@utility profile-aura {
+  @apply absolute inset-0 bg-linear-to-tr from-primary/40 to-secondary/40 blur-3xl rounded-full animate-pulse;
+}
+
+@utility morph-blob {
+  @apply animate-morph transition-all duration-1000 ease-in-out;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.gallery-card .gallery-img {
+  @apply transition-all duration-700 ease-out;
+}
+
+.gallery-card .gallery-img.fade-out {
+  @apply opacity-0 scale-105;
+}
+
+.gallery-card:hover .gallery-img {
+  @apply scale-110;
+}
+
+.gallery-card .dot {
+  @apply w-1.5 h-1.5 rounded-full transition-all duration-300;
+}
+
+.gallery-card .dot.active {
+  @apply bg-primary w-4 opacity-100;
+}
+
+/* Gallery Navigation Buttons */
+.gallery-card .glass {
+  @apply bg-white/20 dark:bg-black/20 backdrop-blur-md border-none;
+}
+
+.gallery-card button:hover {
+  @apply scale-110 shadow-lg shadow-primary/20 bg-white/40 dark:bg-gray-800/60;
+}
+
+/* Contact Form Styles */
+.form-group input:focus,
+.form-group textarea:focus {
+  @apply border-primary ring-2 ring-primary/20 bg-white/10;
+}
+
+#submit-btn.loading {
+  @apply opacity-80 cursor-wait;
+}
+
+#submit-btn.success {
+  @apply bg-green-500 from-green-500 to-green-600 shadow-green-500/20;
+}
+
+/* Custom Success Animation */
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-icon {
+  animation: checkmark 0.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.modal-show #modal-content {
+  @apply opacity-100 scale-100 translate-y-0;
+}
+
+body.modal-open {
+  @apply overflow-hidden;
+}
+
+body {
+  @apply bg-light text-dark dark:bg-dark dark:text-light transition-colors duration-500;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+.partner-logo svg {
+  fill: #9ca3af;
+}
+
+/* Footer Specific Styles */
+.footer-link {
+  @apply relative inline-block transition-colors duration-300;
+}
+
+.footer-link::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+}
+
+.footer-link:hover::after {
+  @apply w-full;
+}
+
+.social-btn {
+  @apply w-12 h-12 flex items-center justify-center rounded-2xl glass border border-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/30 hover:bg-primary/20 hover:text-primary;
+}
+
+#back-to-top {
+  @apply fixed bottom-8 right-8 w-14 h-14 rounded-2xl glass-heavy flex items-center justify-center text-primary z-40 transition-all duration-500 translate-y-20 opacity-0 invisible hover:scale-110 active:scale-90 hover:bg-primary hover:text-white;
+}
+
+#back-to-top.show {
+  @apply translate-y-0 opacity-100 visible;
+}
+
+.emoji-burst {
+  @apply absolute pointer-events-none text-2xl scale-150;
+  animation: emoji-float 1s ease-out forwards;
+}
+
+@keyframes emoji-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0) rotate(var(--r));
+    opacity: 0;
+  }
+}
+
+/* Hamburger Menu Styles */
+#menu-btn.hamburger-active .hamburger-bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  @apply bg-primary;
+}
+
+#menu-btn.hamburger-active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+#menu-btn.hamburger-active .hamburger-bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+  @apply bg-primary;
+}
+
+/* Full Menu Overlay */
+#full-menu.show {
+  @apply opacity-100;
+}
+
+#full-menu.show .menu-item {
+  @apply translate-y-0 opacity-100;
+}
+
+/* Staggered animation for menu items */
+#full-menu.show .menu-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+#full-menu.show .menu-item:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+#full-menu.show .menu-item:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+#full-menu.show .menu-item:nth-child(4) {
+  transition-delay: 0.25s;
+}
+
+#full-menu.show .menu-item:nth-child(5) {
+  transition-delay: 0.3s;
+}
+
+#full-menu.show .menu-item:nth-child(6) {
+  transition-delay: 0.35s;
+}
+
+#full-menu.show .menu-item:nth-child(7) {
+  transition-delay: 0.4s;
+}
+
+#full-menu.show .menu-item:nth-child(8) {
+  transition-delay: 0.45s;
+}
+
+/* Ensure backdrop blur works on all browsers */
+#full-menu .backdrop-blur-2xl {
+  -webkit-backdrop-filter: blur(40px);
+}
+
+body.menu-open {
+  @apply overflow-hidden;
+}
